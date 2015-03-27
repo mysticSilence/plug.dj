@@ -3,8 +3,8 @@
 
 API.on(API.CHAT_COMMAND, getCommand);
 function getCommand(cmd){
-	cmd = cmd.toLowerCase();
-	var args = cmd.split(" ");
+	var str = cmd.toLowerCase();
+	var args = str.split(" ");
 
 	if(args[0] == "test"){
 		console.log("testing");
