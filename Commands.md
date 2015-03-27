@@ -57,6 +57,7 @@
     <td><b>Usage</b></td>
   </tr>
   <tr>
-  <td>none</td>
-  <td>none</td>
+    <td><b>!ver</b></td>
+    <td><i>Returns the current bot version</i></td>
+  <tr>
 </table>
