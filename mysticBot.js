@@ -19,11 +19,22 @@ function getRole(user, role){
 	return false;
 };
 
-function getChat(message){ //chat command parser
-	var sender = API.getUser(message.uid); //sender
+function getChat(chat){ //chat command parser
+	var sender = API.getUser(chat.uid); //sender
 	if(getRole(sender, 5)){ //if host
 	};
 	if(getRole(sender, 4)){ //if cohost
+	};
+	if(getRole(sender, 3)){ //if manager
+	};
+	if(getRole(sender, 2)){ //if bouncer
+	};
+	if(getRole(sender, 1)){ //if dj
+	};
+	if(getRole(sender, 0)){ //if guest
+		if(chat.message == "!ver"){
+			API.sendChat("@" + sender.username + ": I am currently version " + version);
+		};
 	};
 };
 
