@@ -3,6 +3,7 @@
 
 //bot constants
 var version = 0.01; 
+var botName = "mystic Bot";
 
 //roles
 var host = API.ROLE.HOST; //5
@@ -21,19 +22,25 @@ function getRole(user, role){
 
 function getChat(chat){ //chat command parser
 	var sender = API.getUser(chat.uid); //sender
-	if(getRole(sender, 5)){ //if host
-	};
-	if(getRole(sender, 4)){ //if cohost
-	};
-	if(getRole(sender, 3)){ //if manager
-	};
-	if(getRole(sender, 2)){ //if bouncer
-	};
-	if(getRole(sender, 1)){ //if dj
-	};
-	if(getRole(sender, 0)){ //if guest
-		if(chat.message == "!ver"){
-			API.sendChat("@" + sender.username + ": I am currently version " + version);
+	if(sender.username != botname){
+		if(getRole(sender, 5)){ //if host
+		};
+		if(getRole(sender, 4)){ //if cohost
+		};
+		if(getRole(sender, 3)){ //if manager
+		};
+		if(getRole(sender, 2)){ //if bouncer
+		};
+		if(getRole(sender, 1)){ //if dj
+		};
+		if(getRole(sender, 0)){ //if guest
+			if(chat.message == "!ver"){
+				API.sendChat("@" + sender.username + ": I am currently version " + version);
+			};
+		};
+		
+		if(chat.message.indexOf(botname) != -1){ //if someone tries to talk to the bot
+			API.sendChat("@" + sender.username + ": I am simply a bot. I cannot engage in conversation.")
 		};
 	};
 };
