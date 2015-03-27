@@ -15,19 +15,20 @@ var guest = API.ROLE.NONE; //0
 function getRole(user, role){
 	if(user.role >= role){
 		return true;
-	}
+	};
 	return false;
-}
+};
 
 function getChat(message){ //chat command parser
 	var sender = API.getUser(message.uid); //sender
 	if(getRole(sender, 5)){ //if host
-		
-	}
+	};
+	if(getRole(sender, 4)){ //if cohost
+	};
 };
 
 function parseEntry(user){
-	API.sendChat("Welcome to the community, " + user.username)
-}
+	API.sendChat("Welcome to the community, " + user.username + ". I currently have no function, but am under development.");
+};
 API.on(API.CHAT, getChat); //chat command handler
 API.on(API.USER_JOIN, parseEntry); //user join parser
