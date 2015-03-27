@@ -21,8 +21,8 @@
     <td><b>Usage</b></td>
   </tr>
   <tr>
-  <td>none</td>
-  <td>none</td>
+  <td><b>!skip</b></td>
+  <td><i>Skip the current song</i></td>
 </table>
 <table>
   <tr>
@@ -60,4 +60,8 @@
     <td><b>!ver</b></td>
     <td><i>Returns the current bot version</i></td>
   <tr>
+  <tr>
+    <td><b>!getRole user / !gr user</b></td>
+    <td><i>Returns the role of the specified user</i></td>
+  </tr>
 </table>
