@@ -4,9 +4,7 @@
 API.on(API.CHAT_COMMAND, getCommand);
 function getCommand(cmd){
 	var str = cmd.toLowerCase();
-	var args = str.split(" ");
-
-	if(args[0] == "test"){
+	if(str == "/test"){
 		console.log("testing");
 	}
 };
