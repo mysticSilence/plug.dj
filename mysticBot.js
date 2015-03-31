@@ -12,11 +12,26 @@ var bouncer = API.ROLE.BOUNCER; //2
 var dj = API.ROLE.DJ; //1
 var guest = API.ROLE.NONE; //0
 
-var time = {
+var time = { //uptime
 	hr:0,
 	min:0,
 	sec:0,
-	val:""
+	val:"",
+	Update:function(){
+		time.sec++;
+		if(time.sec == 60){
+			time.sec = 0;
+			time.min++;
+			if(time.min == 60){
+				time.hr++;
+				if(time.hr == 24){
+					time.day++;
+					time.hr = 0;
+				};
+			}
+		}
+	},
+	uptime:("0"+time.hr).slice(-2) + ":" + ("0"+time.min).slice(-2) + ":" + ("0"+time.sec).slice(-2)
 }
 
 //users
@@ -44,6 +59,9 @@ function getChat(chat){ //chat command parser
 			};
 		};
 		if(getRole(sender, 1)){ //if at least dj
+			if(chat.message.toLowerCase() == "!uptime" || chat.message.toLowerCase() == "!ut"){
+				API.sendChat("@" + sender.username + ": My current uptime is " + time.uptime);
+			}
 			if(args[0].toLowerCase() == "!kill"){
 				API.sendChat("@" + sender.username + ": user " + args[1] + " has been killed.");
 			}
@@ -95,21 +113,7 @@ function parseEntry(user){
 	users.push(user);
 };
 
-function timeUpdate(){
-	sec++;
-	if(sec == 59){
-		sec = 0;
-		min++;
-		if(min == 59){
-			hr++;
-			if(hr == 23){
-				hr = 0;
-			};
-		}
-	}
-}
-
 API.on(API.CHAT, getChat); //chat handler
 API.on(API.USER_JOIN, parseEntry); //user join parser
 
-setInterval(timeUpdate, 1000);
+setInterval(time.Update, 1000);
