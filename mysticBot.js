@@ -30,6 +30,7 @@ var time = { //uptime
 				};
 			}
 		}
+		time.uptime = ("0"+time.hr).slice(-2) + ":" + ("0"+time.min).slice(-2) + ":" + ("0"+time.sec).slice(-2)
 	},
 	uptime:("0"+time.hr).slice(-2) + ":" + ("0"+time.min).slice(-2) + ":" + ("0"+time.sec).slice(-2)
 }
