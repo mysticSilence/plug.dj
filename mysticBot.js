@@ -12,12 +12,12 @@ var bouncer = API.ROLE.BOUNCER; //2
 var dj = API.ROLE.DJ; //1
 var guest = API.ROLE.NONE; //0
 
-var time = [
-	var hr = 0;
-	var min = 0;
-	var sec = 0;
-	var str = "00:00:00";
-]
+var time = {
+	hr:0;
+	min:0;
+	sec:0;
+	val:"";
+}
 
 //users
 var users = API.getUsers();
