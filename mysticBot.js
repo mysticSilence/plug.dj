@@ -13,10 +13,10 @@ var dj = API.ROLE.DJ; //1
 var guest = API.ROLE.NONE; //0
 
 var time = {
-	hr:0;
-	min:0;
-	sec:0;
-	val:"";
+	hr:0,
+	min:0,
+	sec:0,
+	val:""
 }
 
 //users
